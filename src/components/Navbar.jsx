@@ -16,7 +16,7 @@ const Navbar = () => {
             <NavLink to='/allsports' className="ml-3 font-bold"><a>Find Tutors</a></NavLink>
         }
         {
-            <NavLink to='/addequipment' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
+            <NavLink to='/addTutorials' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
         }
         {
             <NavLink to='/myequip' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
