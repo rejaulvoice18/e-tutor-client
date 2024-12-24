@@ -4,6 +4,8 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import AddTotorials from "../pages/AddTotorials";
+import MyTutorials from "../pages/MyTutorials";
+import UpdateMyTutorials from "../pages/UpdateMyTutorials";
 
 const router = createBrowserRouter([
     {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
             {
                 path: '/addTutorials',
                 element: <AddTotorials></AddTotorials>
+            },
+            {
+                path: '/myTutorials',
+                element: <MyTutorials></MyTutorials>
+            },
+            {
+                path: '/updateMyTutorial/:id',
+                element: <UpdateMyTutorials></UpdateMyTutorials>
             },
             {
                 path: '/login',

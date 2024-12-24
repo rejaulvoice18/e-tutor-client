@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-import axios from 'axios';
-import toast from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 
-const AddTotorials = () => {
+const UpdateMyTutorials = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 
-    const handleAddTutorials = async e => {
+    const handleUpdateTutorials = async e => {
         e.preventDefault()
+        const { id } = useParams() 
 
         const name = e.target.name.value;
         const email = e.target.email.value;
@@ -39,7 +38,7 @@ const AddTotorials = () => {
     return (
         <div className='p-24'>
             <h2 className='font-bold text-2xl bg-[#36ab3f] inline-block px-2 text-white'>Add a Tutorial</h2>
-            <form onSubmit={handleAddTutorials}>
+            <form onSubmit={handleUpdateTutorials}>
                 {/* user name and user email row */}
                 <div className='md:flex gap-3 mb-5'>
                     <div className='form-control md:w-1/2'>
@@ -103,4 +102,4 @@ const AddTotorials = () => {
     );
 };
 
-export default AddTotorials;
+export default UpdateMyTutorials;
