@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SocialLogin from '../components/SocialLogin';
 import LoginData from '../assets/lottie/login.json'
 import Lottie from 'lottie-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    const { signInUser, setUser } = useContext(AuthContext)
+    const navigate = useNavigate()
+
     const handleLogin = e => {
         e.preventDefault()
+
+        const form = e.target 
+        const email = form.email.value
+        const password = form.password.value
+
+        console.table({email, password})
+
+        // sign in user with email password
+        signInUser(email, password)
+        .then(result=>{
+            const currUser = result.user;
+            setUser(currUser);
+            console.log(currUser)
+            toast.success('User Signed In Succeessfully!!')
+            navigate('/')
+        })
+        .catch(err=>{
+            toast.error('Wrong Credentials')
+        })
+
+
 
     }
     return (

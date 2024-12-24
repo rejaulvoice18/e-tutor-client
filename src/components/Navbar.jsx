@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../provider/AuthProvider';
+import toast from 'react-hot-toast';
+import { Tooltip as ReactTooltip } from 'react-tooltip'
 
 const Navbar = () => {
-
-    const handleSignOut = () =>{
-        
+    const { user, signOutUser } = useContext(AuthContext)
+    const handleSignOut = () => {
+        signOutUser()
         toast.success('Successfully Signed Out');
     }
     const links = <>
@@ -13,13 +16,13 @@ const Navbar = () => {
             <NavLink to='/allsports' className="ml-3 font-bold"><a>Find Tutors</a></NavLink>
         }
         {
-             <NavLink to='/addequipment' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
+            <NavLink to='/addequipment' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
         }
         {
-             <NavLink to='/myequip' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
+            <NavLink to='/myequip' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
         }
         {
-             <NavLink to='/myequip' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
+            <NavLink to='/myequip' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
         }
     </>
     return (
@@ -60,29 +63,28 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end flex gap-2">
 
-                    {/* { */}
-                         {/* user && user?.email */}
-                             <div className='flex gap-3'>
+                    {
+                        user && user?.email
+                            ? <div className='flex gap-3'>
                                 <div className='flex flex-col items-center'>
                                     <div className="avatar cursor-pointer">
                                         <div className="ring-offset-base-900 w-11 rounded-full ring ring-offset-2">
-                                            <img src="https://hpi.de/oldsite/fileadmin/_processed_/9/f/csm_akhyar_image_fbf27b181f.png" id="nameTitle" />
-                                            {/* <ReactTooltip
+                                            <img src={user?.photoURL && user?.photoURL} id="nameTitle" />
+                                            <ReactTooltip
                                                 anchorId="nameTitle"
                                                 place='top'
                                                 content={user?.email && user.displayName}
-                                            /> */}
+                                            />
                                         </div>
                                     </div>
                                 </div>
                                 <button onClick={handleSignOut} className="btn bg-white rounded text-[#36ab3f] hover:bg-[#e0a823] hover:text-white">Log Out</button>
                             </div>
 
-                             <div className='flex gap-3'>
+                            : <div className='flex gap-3'>
                                 <Link to="/login" className='btn bg-white rounded text-[#36ab3f] hover:bg-[#e0a823] hover:text-white'>Login</Link>
-                                
                             </div>
-                    {/* } */}
+                    }
 
                 </div>
             </div>
