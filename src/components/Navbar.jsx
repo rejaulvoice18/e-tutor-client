@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
+import DarkWeb from './DarkWeb';
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
@@ -27,7 +28,7 @@ const Navbar = () => {
     </>
     return (
         <>
-            {/* <div className='flex justify-end'><ThemeToggle></ThemeToggle></div> */}
+            <div className='flex justify-end'><DarkWeb></DarkWeb></div>
             <div className="navbar bg-gray-800 text-white bg-opacity-95 fixed top-0 z-10">
 
                 <div className="navbar-start">

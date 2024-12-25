@@ -5,21 +5,11 @@ const Footer = () => {
         <div className='bg-gray-800 text-white p-10'>
         <div className='md:flex justify-between'>
             <div>
-                <h2 className='text-2xl font-bold'>Join Our Newsletter</h2>
-                <p className='text-xs'>And Get 20% OFF your First Order</p>
+                <h2 className='text-2xl font-bold'>eTutor</h2>
+                <p className='text-xs'>Book a tutor and  Get 20% OFF your First Lession</p>
             </div>
             <div>
-                <form>
-                    <fieldset className="form-control w-80">
-                        <div className="join">
-                            <input
-                                type="text"
-                                placeholder="Enter your email address"
-                                className="input input-bordered join-item" />
-                            <button className="btn bg-[#36ab3f] join-item text-white">Subscribe</button>
-                        </div>
-                    </fieldset>
-                </form>
+                logo
             </div>
         </div>
         <div className='divide-solid py-8'>
@@ -31,7 +21,7 @@ const Footer = () => {
                 <p>Reviews</p>
             </div>
             <div>
-                <h2 className='text-2xl font-bold'>E-Tutor</h2>
+                
             </div>
             <div className='flex gap-5'>
                 <a href="">Facebook</a>

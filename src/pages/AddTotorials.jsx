@@ -46,7 +46,7 @@ const AddTotorials = () => {
     }
     return (
         <div className='p-24'>
-            <h2 className='font-bold text-2xl bg-[#36ab3f] inline-block px-2 text-white'>Add a Tutorial</h2>
+            <h2 className='font-bold text-2xl bg-gray-800 rounded-md inline-block px-2 text-white'>Add a Tutorial</h2>
             <form onSubmit={handleAddTutorials}>
                 {/* user name and user email row */}
                 <div className='md:flex gap-3 mb-5'>
@@ -105,7 +105,7 @@ const AddTotorials = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Tutorial" className='btn btn-block bg-[#e0a823] text-black font-bold' />
+                <input type="submit" value="Add Tutorial" className='btn btn-block bg-gray-800 text-white font-bold' />
             </form>
         </div>
     );

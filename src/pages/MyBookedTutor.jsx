@@ -20,7 +20,7 @@ const MyBookedTutor = () => {
     return (
         <section className='container px-4 mx-auto my-12'>
             <div className='flex items-center gap-x-3'>
-                <h2 className='text-lg font-medium text-gray-800 '>My Booked Tutor</h2>
+            <h2 className='text-lg font-medium text-white py-1 px-3 rounded-md bg-gray-800 '>My Tutorials</h2>
 
                 <span className='px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full '>
                     {tutors.length} tutor

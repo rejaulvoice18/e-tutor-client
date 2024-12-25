@@ -15,7 +15,7 @@ const CategoryCard = ({ cat }) => {
                             alt="Movie" />
                     </figure>
                     <div className="flex flex-col gap-3">
-                        <p className='text-black font-bold'>{language}</p>
+                        <p className='font-bold'>{language}</p>
                     </div>
                     <div className="flex flex-col flex-grow gap-3">
                         <div className="card-actions justify-end ">
