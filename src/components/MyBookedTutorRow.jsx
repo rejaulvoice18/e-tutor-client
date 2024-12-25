@@ -7,17 +7,7 @@ import { Link } from 'react-router-dom';
 
 const MyBookedTutorRow = ({tutor}) => {
 
-    // const bookedData = {
-    //     tutorId: tutorial._id,
-    //     name: tutorial.name,
-    //     image: tutorial.tutorialPhoto,
-    //     language: tutorial.language,
-    //     price: tutorial.price,
-    //     tutorEmail: tutorial.email,
-    //     email: user.email
-    // }
-
-    const { name, image, language, price, review, _id, tutorId } = tutor || {}
+    const { name, image, language, price, _id, tutorId } = tutor || {}
 
     const handleIncrementReview = async (id) =>{
 

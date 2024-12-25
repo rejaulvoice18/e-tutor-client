@@ -7,7 +7,7 @@ const CategoryCard = ({ cat }) => {
     return (
         <>
             <Link to='/find-tutors'>
-                <div className="card card-side bg-base-100 rounded-none p-1 items-center justify-items-center border gap-3">
+                <div className="card card-side bg-base-100 rounded p-6 items-center justify-items-center border gap-3">
                     <figure>
                         <img
                             className='w-10'
@@ -15,7 +15,7 @@ const CategoryCard = ({ cat }) => {
                             alt="Movie" />
                     </figure>
                     <div className="flex flex-col gap-3">
-                        <p className='text-green-500 font-bold'>{language}</p>
+                        <p className='text-black font-bold'>{language}</p>
                     </div>
                     <div className="flex flex-col flex-grow gap-3">
                         <div className="card-actions justify-end ">

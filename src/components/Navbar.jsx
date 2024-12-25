@@ -16,13 +16,13 @@ const Navbar = () => {
             <NavLink to='/find-tutors' className="ml-3 font-bold"><a>Find Tutors</a></NavLink>
         }
         {
-            <NavLink to='/addTutorials' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
+            user?.email && <NavLink to='/addTutorials' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
         }
         {
-            <NavLink to='/myTutorials' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
+            user?.email && <NavLink to='/myTutorials' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
         }
         {
-            <NavLink to='/myBooked-tutor' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
+            user?.email && <NavLink to='/myBooked-tutor' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
         }
     </>
     return (
@@ -78,11 +78,11 @@ const Navbar = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <button onClick={handleSignOut} className="btn bg-white rounded text-[#36ab3f] hover:bg-[#e0a823] hover:text-white">Log Out</button>
+                                <button onClick={handleSignOut} className="btn bg-white rounded text-black hover:bg-[#e0a823] hover:text-white">Log Out</button>
                             </div>
 
                             : <div className='flex gap-3'>
-                                <Link to="/login" className='btn bg-white rounded text-[#36ab3f] hover:bg-[#e0a823] hover:text-white'>Login</Link>
+                                <Link to="/login" className='btn bg-white rounded text-black hover:bg-[#e0a823] hover:text-white'>Login</Link>
                             </div>
                     }
 
