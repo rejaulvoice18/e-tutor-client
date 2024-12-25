@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const UpdateMyTutorials = () => {
     const { user } = useContext(AuthContext)
@@ -24,7 +25,7 @@ const UpdateMyTutorials = () => {
 
     const handleUpdateTutorials = async e => {
         e.preventDefault()
-        const { id } = useParams() 
+        
 
         const name = e.target.name.value;
         const email = e.target.email.value;
@@ -33,17 +34,17 @@ const UpdateMyTutorials = () => {
         const description = e.target.description.value;
         const price = e.target.price.value;
 
-        const newTutorial = { name, email, tutorialPhoto, language, description, price, review: 0 };
+        const updateTutorial = { name, email, tutorialPhoto, language, description, price, review: 0 };
 
-        console.table({ newTutorial })
+        console.table({ updateTutorial })
 
         try{
-            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorial`,
-                newTutorial
+            const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/update-tutorial/${id}`,
+                updateTutorial
             )
             // e.target.reset()
             console.log(data)
-            toast.success('Tutorial added successfully!!')
+            toast.success('Tutorial updated successfully!!')
             navigate('/myTutorials')
 
         } catch (error){
@@ -53,7 +54,7 @@ const UpdateMyTutorials = () => {
     }
     return (
         <div className='p-24'>
-            <h2 className='font-bold text-2xl bg-[#36ab3f] inline-block px-2 text-white'>Add a Tutorial</h2>
+            <h2 className='font-bold text-2xl bg-[#36ab3f] inline-block px-2 text-white'>Update a Tutorial</h2>
             <form onSubmit={handleUpdateTutorials}>
                 {/* user name and user email row */}
                 <div className='md:flex gap-3 mb-5'>
@@ -123,7 +124,7 @@ const UpdateMyTutorials = () => {
                         </label>
                     </div>
                 </div>
-                <input type="submit" value="Add Tutorial" className='btn btn-block bg-[#e0a823] text-black font-bold' />
+                <input type="submit" value="Update Tutorial" className='btn btn-block bg-[#e0a823] text-black font-bold' />
             </form>
         </div>
     );
