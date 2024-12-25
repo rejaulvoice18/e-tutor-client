@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const TutorCard = ({ tutors }) => {
-    
+
     const { name, email, tutorialPhoto, language, description, price, review, _id } = tutors || {}
     return (
         <div className="card card-side bg-base-100 rounded-none shadow-md gap-3">
@@ -15,7 +15,7 @@ const TutorCard = ({ tutors }) => {
             <div className="flex flex-col gap-3">
                 <h2 className="card-title">{name}</h2>
                 <p className='text-green-500 font-bold'>{language}</p>
-                <p>Review: {review}</p>
+                <p>Review: <span className='bg-yellow-200/60 font-bold p-1 rounded-md'>{review}</span></p>
                 <p>Details: {description.substring(0, 30)}...</p>
             </div>
             <div className="flex flex-col flex-grow gap-3">
