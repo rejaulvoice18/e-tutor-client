@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div className='bg-[#36ab3f] text-white p-10'>
+        <div className='bg-gray-800 text-white p-10'>
         <div className='md:flex justify-between'>
             <div>
                 <h2 className='text-2xl font-bold'>Join Our Newsletter</h2>
@@ -27,9 +27,8 @@ const Footer = () => {
         </div>
         <div className='md:flex justify-between'>
             <div className='flex gap-5'>
-                <p>Shop</p>
+                <p>Fint Tutor</p>
                 <p>Reviews</p>
-                <p>Faq</p>
             </div>
             <div>
                 <h2 className='text-2xl font-bold'>E-Tutor</h2>

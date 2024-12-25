@@ -28,10 +28,10 @@ const Navbar = () => {
     return (
         <>
             {/* <div className='flex justify-end'><ThemeToggle></ThemeToggle></div> */}
-            <div className="navbar bg-[#36ab3f] text-white bg-opacity-95 fixed top-0 z-10">
+            <div className="navbar bg-gray-800 text-white bg-opacity-95 fixed top-0 z-10">
 
                 <div className="navbar-start">
-                    <div className="dropdown bg-[#36ab3f]">
+                    <div className="dropdown bg-gray-900">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ const Navbar = () => {
                         </div>
                         <ul
                             tabIndex={0}
-                            className="bg-[#e0a823] text-black bg-opacity-95 menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            className="bg-gray-800 text-white bg-opacity-95 menu menu-sm dropdown-content rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             {
                                 links
                             }
