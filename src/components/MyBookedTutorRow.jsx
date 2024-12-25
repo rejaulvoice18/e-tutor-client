@@ -1,4 +1,6 @@
+import axios from 'axios';
 import React from 'react';
+import toast from 'react-hot-toast';
 import { GrDocumentUpdate } from 'react-icons/gr';
 import { MdFolderDelete } from 'react-icons/md';
 import { Link } from 'react-router-dom';
@@ -15,7 +17,18 @@ const MyBookedTutorRow = ({tutor}) => {
     //     email: user.email
     // }
 
-    const { name, image, language, price, review, _id } = tutor || {}
+    const { name, image, language, price, review, _id, tutorId } = tutor || {}
+
+    const handleIncrementReview = async (id) =>{
+
+    try {
+        // make a patch request to increase review count
+      const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/review-inc/${id}`)
+        toast.success('One review Added Successfully!!!')
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
     return (
         <tr>
             <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
@@ -42,7 +55,7 @@ const MyBookedTutorRow = ({tutor}) => {
                 <div className='flex items-center gap-x-6'>
                     {/* Delete Button */}
                     <button
-                        onClick={() => handleDelete(_id)}
+                        onClick={() => handleIncrementReview(tutorId)}
                         className='transition-colors duration-200 text-green-400 bg-green-200/60 p-1 rounded-md  hover:text-green-700 focus:outline-none'>
                         Review
                     </button>
