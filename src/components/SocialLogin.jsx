@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../provider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const SocialLogin = () => {
+    const { popUpSignIn } = useContext(AuthContext)
+    const navigate = useNavigate()
+
     const handleGoogleSignIn = () => {
-        signInWithGooglePopUp()
+        popUpSignIn()
             .then(result => {
                 // console.log(result.user)
+                toast.success('Google Sign In Successfull!!')
+                navigate('/')
             })
             .catch(err => {
                 // console.log(err.message)
