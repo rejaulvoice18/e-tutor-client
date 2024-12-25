@@ -1,10 +1,52 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { MdFolderDelete } from "react-icons/md";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+import { AuthContext } from '../provider/AuthProvider';
 
-const MyTutorialRow = ({ tutorial }) => {
+const MyTutorialRow = ({ tutorial, tutorials, setTutorials, loadAllMyTutorials }) => {
     const { name, tutorialPhoto, language, description, price, review, _id } = tutorial || {}
+
+    useEffect(() => {
+        loadAllMyTutorials()
+    }, [])
+
+    const handleDelete = _id => {
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                // fetch(`${import.meta.env.VITE_API_URL}/tutorial-delete/${_id}`, {
+                //     method: 'DELETE'
+
+                // })
+                //     .then(res => res.json())
+                    await axios.delete(`${import.meta.env.VITE_API_URL}/tutorial-delete/${_id}`)
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Equip has been deleted.",
+                                icon: "success"
+                            });
+                            const remainingTutorials = tutorials.filter(tuto => tuto._id !== _id);
+                            setTutorials(remainingTutorials);
+                            
+                        }
+                    })
+            }
+            loadAllMyTutorials()
+        });
+    }
 
     return (
         <tr>
@@ -40,6 +82,7 @@ const MyTutorialRow = ({ tutorial }) => {
                 <div className='flex items-center gap-x-6'>
                     {/* Delete Button */}
                     <button
+                        onClick={()=> handleDelete(_id)}
                         className='transition-colors duration-200 text-red-400   hover:text-red-500 focus:outline-none'>
                         <MdFolderDelete size={30} />
                     </button>

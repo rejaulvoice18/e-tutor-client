@@ -16,7 +16,6 @@ const MyTutorials = () => {
         setTutorials(data)
     }
 
-    console.log(tutorials);
 
     return (
         <section className='container px-4 mx-auto my-12'>
@@ -92,6 +91,9 @@ const MyTutorials = () => {
                                         tutorials.map(tutorial => <MyTutorialRow
                                             key={tutorial._id}
                                             tutorial={tutorial}
+                                            tutorials = {tutorials}
+                                            setTutorials = {setTutorials}
+                                            loadAllMyTutorials = {loadAllMyTutorials}
                                            
                                         />)
                                     }
