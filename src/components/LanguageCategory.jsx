@@ -42,19 +42,19 @@ const LanguageCategory = () => {
             {/* Alla Stats */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-5 my-14 justify-between'>
                 <div className='text-center'>
-                    <h2 className='font-bold text-2xl'>{allTutor.length}</h2>
+                    <h2 className='font-bold text-2xl'><span className="bg-yellow-200/60 p-1 rounded-full">{allTutor.length}</span></h2>
                     <p className='text-xs'>Experience Tutors</p>
                 </div>
                 <div className='text-center'>
-                    <h2 className='font-bold text-2xl'>{totalReviews}</h2>
+                    <h2 className='font-bold text-2xl'><span className="bg-yellow-200/60 p-1 rounded-full">{totalReviews}</span></h2>
                     <p className='text-xs'>5-star tutor reviews</p>
                 </div >
                 <div className='text-center'>
-                    <h2 className='font-bold text-2xl'>{category.length}</h2>
+                    <h2 className='font-bold text-2xl'><span className="bg-yellow-200/60 p-1 rounded-full">{category.length}</span></h2>
                     <p className='text-xs'>Tutors Languages</p>
                 </div>
                 <div className='text-center'>
-                    <h2 className='font-bold text-2xl'>{allTutor.length}</h2>
+                    <h2 className='font-bold text-2xl'><span className="bg-yellow-200/60 p-1 rounded-full">{allTutor.length}</span></h2>
                     <p className='text-xs'>Users</p>
                 </div>
             </div>
