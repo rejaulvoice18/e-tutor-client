@@ -22,7 +22,7 @@ const Navbar = () => {
             <NavLink to='/myTutorials' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
         }
         {
-            <NavLink to='/myequip' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
+            <NavLink to='/myBooked-tutor' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
         }
     </>
     return (

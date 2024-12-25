@@ -8,6 +8,8 @@ import MyTutorials from "../pages/MyTutorials";
 import UpdateMyTutorials from "../pages/UpdateMyTutorials";
 import FindTutors from "../pages/FindTutors";
 import TutorDetails from "../pages/TutorDetails";
+import PrivateRoute from "./PrivateRoute";
+import MyBookedTutor from "../pages/MyBookedTutor";
 
 const router = createBrowserRouter([
     {
@@ -20,11 +22,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addTutorials',
-                element: <AddTotorials></AddTotorials>
+                element: <PrivateRoute><AddTotorials></AddTotorials></PrivateRoute>
             },
             {
                 path: '/myTutorials',
-                element: <MyTutorials></MyTutorials>
+                element: <PrivateRoute><MyTutorials></MyTutorials></PrivateRoute>
             },
             {
                 path: '/updateMyTutorial/:id',
@@ -36,7 +38,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/tutor/:details',
-                element: <TutorDetails></TutorDetails>
+                element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>
+            },
+            {
+                path: '/myBooked-tutor',
+                element: <PrivateRoute><MyBookedTutor></MyBookedTutor></PrivateRoute>
             },
             {
                 path: '/login',

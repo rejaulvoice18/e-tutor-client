@@ -26,7 +26,6 @@ const UpdateMyTutorials = () => {
     const handleUpdateTutorials = async e => {
         e.preventDefault()
         
-
         const name = e.target.name.value;
         const email = e.target.email.value;
         const tutorialPhoto = e.target.tutorialPhoto.value;

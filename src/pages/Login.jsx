@@ -2,12 +2,13 @@ import React, { useContext } from 'react';
 import SocialLogin from '../components/SocialLogin';
 import LoginData from '../assets/lottie/login.json'
 import Lottie from 'lottie-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 
 const Login = () => {
     const { signInUser, setUser } = useContext(AuthContext)
+    const location = useLocation()
     const navigate = useNavigate()
 
     const handleLogin = e => {
@@ -26,7 +27,7 @@ const Login = () => {
             setUser(currUser);
             console.log(currUser)
             toast.success('User Signed In Succeessfully!!')
-            navigate('/')
+            navigate(location?.state ? location.state : '/')
         })
         .catch(err=>{
             toast.error('Wrong Credentials')
