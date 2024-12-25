@@ -1,17 +1,12 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { MdFolderDelete } from "react-icons/md";
 import { GrDocumentUpdate } from "react-icons/gr";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import axios from 'axios';
-import { AuthContext } from '../provider/AuthProvider';
 
 const MyTutorialRow = ({ tutorial, tutorials, setTutorials, loadAllMyTutorials }) => {
     const { name, tutorialPhoto, language, description, price, review, _id } = tutorial || {}
-
-    useEffect(() => {
-        loadAllMyTutorials()
-    }, [])
 
     const handleDelete = _id => {
 
@@ -54,7 +49,7 @@ const MyTutorialRow = ({ tutorial, tutorials, setTutorials, loadAllMyTutorials }
                 {name}
             </td>
             <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
-                <img src={tutorialPhoto} alt="" />
+                <img className="w-20" src={tutorialPhoto} alt="" />
             </td>
 
             <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>

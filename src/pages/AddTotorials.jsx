@@ -47,7 +47,7 @@ const AddTotorials = () => {
                             <span className='label-text'>Name</span>
                         </label>
                         <label className='input-group'>
-                            <input name="name" defaultValue={user && user.displayName} className='input input-bordered w-full' type="text" placeholder='User Name' id="" />
+                            <input name="name" defaultValue={user?.displayName && user.displayName} className='input input-bordered w-full' type="text" placeholder='User Name' id="" />
                         </label>
                     </div>
                     <div className='form-control md:w-1/2'>

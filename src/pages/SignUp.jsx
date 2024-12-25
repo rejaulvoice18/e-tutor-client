@@ -29,10 +29,11 @@ const SignUp = () => {
             //updating user info
             updateUserProfile({displayName: name, photoURL: photo})
             .then(()=>{
-                navigate('/')
+
             })
-            https://hpi.de/oldsite/fileadmin/_processed_/9/f/csm_akhyar_image_fbf27b181f.png
            toast.success('Account created Successfully')
+           navigate('/')
+           console.log(result)
         })
         .catch(err=>{
             console.log(err.message)

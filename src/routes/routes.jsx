@@ -6,6 +6,8 @@ import SignUp from "../pages/SignUp";
 import AddTotorials from "../pages/AddTotorials";
 import MyTutorials from "../pages/MyTutorials";
 import UpdateMyTutorials from "../pages/UpdateMyTutorials";
+import FindTutors from "../pages/FindTutors";
+import TutorDetails from "../pages/TutorDetails";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
             {
                 path: '/updateMyTutorial/:id',
                 element: <UpdateMyTutorials></UpdateMyTutorials>
+            },
+            {
+                path: '/find-tutors',
+                element: <FindTutors></FindTutors>
+            },
+            {
+                path: '/tutor/:details',
+                element: <TutorDetails></TutorDetails>
             },
             {
                 path: '/login',
