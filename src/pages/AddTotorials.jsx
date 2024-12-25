@@ -18,7 +18,15 @@ const AddTotorials = () => {
         const description = e.target.description.value;
         const price = e.target.price.value;
 
-        const newTutorial = { name, email, tutorialPhoto, language, description, price, review: 0 };
+        const newTutorial = { 
+            name, 
+            email, 
+            tutorialPhoto, 
+            language, 
+            description, 
+            price, 
+            review: 0 
+        };
 
         console.table({ newTutorial })
 
