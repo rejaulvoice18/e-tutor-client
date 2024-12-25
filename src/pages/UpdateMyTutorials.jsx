@@ -1,10 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
+import axios from 'axios';
 
 const UpdateMyTutorials = () => {
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
+    const [tutorial, setTutorial] = useState([])
+    const { id } = useParams()
+
+    useEffect(() => {
+        loadSingleMyTutorial()
+    }, [user])
+
+    const loadSingleMyTutorial = async () => {
+        const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/tutorial/${id}`)
+        setTutorial(data)
+    }
+
+    const { name, email, tutorialPhoto, language, description, price, review } = tutorial || {}
+
+    console.log(tutorial);
 
     const handleUpdateTutorials = async e => {
         e.preventDefault()
@@ -46,7 +62,7 @@ const UpdateMyTutorials = () => {
                             <span className='label-text'>Name</span>
                         </label>
                         <label className='input-group'>
-                            <input name="name" defaultValue={user && user.displayName} className='input input-bordered w-full' type="text" placeholder='User Name' id="" />
+                            <input name="name" disabled={true} defaultValue={user && user.displayName} className='input input-bordered w-full' type="text" placeholder='User Name' id="" />
                         </label>
                     </div>
                     <div className='form-control md:w-1/2'>
@@ -54,26 +70,18 @@ const UpdateMyTutorials = () => {
                             <span className='label-text'>Email</span>
                         </label>
                         <label className='input-group'>
-                            <input name="email" defaultValue={user && user.email} className='input input-bordered w-full' type="text" placeholder='email' id="" />
+                            <input name="email" disabled={true} defaultValue={user && user.email} className='input input-bordered w-full' type="text" placeholder='email' id="" />
                         </label>
                     </div>
                 </div>
-                {/* Tutorial image url and language row */}
+                {/* Tutorial image url row */}
                 <div className='md:flex gap-3 mb-5'>
-                    <div className='form-control md:w-1/2'>
+                    <div className='form-control w-full'>
                         <label className='label'>
                             <span className='label-text'>Tutorial Image URL</span>
                         </label>
                         <label className='input-group'>
-                            <input name="tutorialPhoto" className='input input-bordered w-full' type="text" placeholder='Tutorial Image URL' id="" />
-                        </label>
-                    </div>
-                    <div className='form-control md:w-1/2'>
-                        <label className='label'>
-                            <span className='label-text'>Language</span>
-                        </label>
-                        <label className='input-group'>
-                            <input name="language" className='input input-bordered w-full' type="text" placeholder='language' id="" />
+                            <input name="tutorialPhoto" defaultValue={tutorialPhoto && tutorialPhoto} className='input input-bordered w-full' type="text" placeholder='Tutorial Image URL' id="" />
                         </label>
                     </div>
                 </div>
@@ -84,7 +92,7 @@ const UpdateMyTutorials = () => {
                             <span className='label-text'>Description</span>
                         </label>
                         <label className='input-group'>
-                            <input name="description" className='input input-bordered w-full' type="text" placeholder='Description' id="" />
+                            <input name="description" defaultValue={description} className='input input-bordered w-full' type="text" placeholder='Description' id="" />
                         </label>
                     </div>
                     <div className='form-control md:w-1/2'>
@@ -92,7 +100,26 @@ const UpdateMyTutorials = () => {
                             <span className='label-text'>Price</span>
                         </label>
                         <label className='input-group'>
-                            <input name="price" className='input input-bordered w-full' type="text" placeholder='Price' id="" />
+                            <input name="price" defaultValue={price} className='input input-bordered w-full' type="text" placeholder='Price' id="" />
+                        </label>
+                    </div>
+                </div>
+                {/* Language and review row */}
+                <div className='md:flex gap-3 mb-5'>
+                <div className='form-control md:w-1/2'>
+                        <label className='label'>
+                            <span className='label-text'>Language</span>
+                        </label>
+                        <label className='input-group'>
+                            <input name="language" defaultValue={language} className='input input-bordered w-full' type="text" placeholder='language' id="" />
+                        </label>
+                    </div>
+                    <div className='form-control md:w-1/2'>
+                        <label className='label'>
+                            <span className='label-text'>Review</span>
+                        </label>
+                        <label className='input-group'>
+                            <input name="review" defaultValue={review} disabled={true} className='input input-bordered w-full' type="text" placeholder='Review' id="" />
                         </label>
                     </div>
                 </div>
