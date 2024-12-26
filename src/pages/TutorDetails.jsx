@@ -31,19 +31,16 @@ const TutorDetails = () => {
             email: user.email
         }
 
-        console.table(bookedData)
 
         try{
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/book-tutor`,
                 bookedData
             )
             // e.target.reset()
-            console.log(data)
             toast.success('Tutor booked successfully!!')
             navigate('/myBooked-tutor')
 
         } catch (error){
-            console.log(error.message)
         }
 
     }

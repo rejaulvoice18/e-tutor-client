@@ -28,19 +28,16 @@ const AddTotorials = () => {
             review: 0 
         };
 
-        console.table({ newTutorial })
 
         try{
             const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorial`,
                 newTutorial
             )
             // e.target.reset()
-            console.log(data)
             toast.success('Tutorial added successfully!!')
             navigate('/myTutorials')
 
         } catch (error){
-            console.log(error.message)
         }
 
     }

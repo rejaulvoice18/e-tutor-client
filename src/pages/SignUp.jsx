@@ -17,14 +17,12 @@ const SignUp = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.table({email, password})
 
         // creating new user
         createNewUser(email, password)
         .then(result=>{
             const newUser = result.user
             setUser(newUser)
-            console.log(result)
 
             //updating user info
             updateUserProfile({displayName: name, photoURL: photo})
@@ -33,10 +31,8 @@ const SignUp = () => {
             })
            toast.success('Account created Successfully')
            navigate('/')
-           console.log(result)
         })
         .catch(err=>{
-            console.log(err.message)
         })
 
 

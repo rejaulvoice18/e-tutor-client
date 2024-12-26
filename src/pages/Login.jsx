@@ -18,14 +18,12 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
 
-        console.table({email, password})
 
         // sign in user with email password
         signInUser(email, password)
         .then(result=>{
             const currUser = result.user;
             setUser(currUser);
-            console.log(currUser)
             toast.success('User Signed In Succeessfully!!')
             navigate(location?.state ? location.state : '/')
         })

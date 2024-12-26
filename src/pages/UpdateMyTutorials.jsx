@@ -21,7 +21,6 @@ const UpdateMyTutorials = () => {
 
     const { name, email, tutorialPhoto, language, description, price, review } = tutorial || {}
 
-    console.log(tutorial);
 
     const handleUpdateTutorials = async e => {
         e.preventDefault()
@@ -35,19 +34,16 @@ const UpdateMyTutorials = () => {
 
         const updateTutorial = { name, email, tutorialPhoto, language, description, price, review: 0 };
 
-        console.table({ updateTutorial })
 
         try{
             const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/update-tutorial/${id}`,
                 updateTutorial
             )
             // e.target.reset()
-            console.log(data)
             toast.success('Tutorial updated successfully!!')
             navigate('/myTutorials')
 
         } catch (error){
-            console.log(error.message)
         }
 
     }

@@ -17,19 +17,12 @@ const Navbar = () => {
         {
             <NavLink to='/find-tutors' className="ml-3 font-bold"><a>Find Tutors</a></NavLink>
         }
-        {
-            user?.email && <NavLink to='/addTutorials' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
-        }
-        {
-            user?.email && <NavLink to='/myTutorials' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
-        }
-        {
-            user?.email && <NavLink to='/myBooked-tutor' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
-        }
+        
+
     </>
     return (
         <>
-            <div className='flex justify-end'><DarkWeb></DarkWeb></div>
+            <div className='flex justify-end py-1'><DarkWeb></DarkWeb></div>
             <div className="navbar bg-gray-800 text-white bg-opacity-95 fixed top-0 z-10">
 
                 <div className="navbar-start">
@@ -66,30 +59,40 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex gap-2">
-
+                    {/* star */}
                     {
-                        user && user?.email
-                            ? <div className='flex gap-3'>
-                                <div className='flex flex-col items-center'>
-                                    <div className="avatar cursor-pointer">
-                                        <div className="ring-offset-base-900 w-11 rounded-full ring ring-offset-2">
-                                            <img src={user?.photoURL && user?.photoURL} id="nameTitle" />
-                                            <ReactTooltip
-                                                anchorId="nameTitle"
-                                                place='top'
-                                                content={user?.email && user.displayName}
-                                            />
-                                        </div>
+                        user?.email
+                            ? <div className="dropdown dropdown-end">
+                                <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                    <div className="ring-primary ring-offset-base-100 w-24 rounded-full ring ring-offset-2">
+                                        <img src={user?.photoURL && user?.photoURL} id="nameTitle" />
+                                        <ReactTooltip
+                                            anchorId="nameTitle"
+                                            place='top'
+                                            content={user?.email && user.displayName}
+                                        />
                                     </div>
                                 </div>
-                                <button onClick={handleSignOut} className="btn bg-white rounded text-black hover:bg-[#e0a823] hover:text-white">Log Out</button>
+                                <ul
+                                    tabIndex={0}
+                                    className="menu menu-sm dropdown-content bg-gray-800 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                                    {
+                                        user?.email && <NavLink to='/addTutorials' className="ml-3 font-bold"><a>Add Tutorials</a></NavLink>
+                                    }
+                                    {
+                                        user?.email && <NavLink to='/myTutorials' className="font-bold mx-3"><a>My Tutorials</a></NavLink>
+                                    }
+                                    {
+                                        user?.email && <NavLink to='/myBooked-tutor' className="font-bold mx-3"><a>My Booked Tutors</a></NavLink>
+                                    }
+                                    <li onClick={handleSignOut} className=""><a>Log Out</a></li>
+                                </ul>
                             </div>
-
                             : <div className='flex gap-3'>
                                 <Link to="/login" className='btn bg-white rounded text-black hover:bg-[#e0a823] hover:text-white'>Login</Link>
                             </div>
                     }
-
+                    {/* end */}
                 </div>
             </div>
         </>

@@ -19,7 +19,6 @@ const FindTutors = () => {
     // if somthing changes in filter and search then useEffects dependency will call again
 
     
-    console.log(filter);
     return (
         <div className='w-11/12 mx-auto mb-5'>
             <h2 className='font-bold py-4 text-2xl'>Online Tutors & teacher for private lessons</h2>

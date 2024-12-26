@@ -10,12 +10,10 @@ const SocialLogin = () => {
     const handleGoogleSignIn = () => {
         popUpSignIn()
             .then(result => {
-                // console.log(result.user)
                 toast.success('Google Sign In Successfull!!')
                 navigate('/')
             })
             .catch(err => {
-                // console.log(err.message)
             })
     }
     return (

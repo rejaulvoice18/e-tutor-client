@@ -16,7 +16,6 @@ const MyBookedTutorRow = ({tutor}) => {
       const {data} = await axios.patch(`${import.meta.env.VITE_API_URL}/review-inc/${id}`)
         toast.success('One review Added Successfully!!!')
       } catch (error) {
-        console.log(error.message)
       }
     }
     return (
