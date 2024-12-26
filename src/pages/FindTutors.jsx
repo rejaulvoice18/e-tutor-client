@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import TutorCard from '../components/TutorCard';
 import axios from 'axios';
 import { AuthContext } from '../provider/AuthProvider';
+import Title from '../components/Title';
 
 const FindTutors = () => {
+    Title('FintTutors')
     const { user } = useContext(AuthContext)
     const [tutors, setTutors] = useState([])
     const [filter, setFilter] = useState('')

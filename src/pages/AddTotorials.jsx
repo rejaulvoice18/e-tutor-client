@@ -3,8 +3,10 @@ import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import Title from '../components/Title';
 
 const AddTotorials = () => {
+    Title('AddTutorials')
     const { user } = useContext(AuthContext)
     const navigate = useNavigate()
 

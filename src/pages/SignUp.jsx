@@ -4,8 +4,10 @@ import registerLottieData from '../assets/lottie/register.json'
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import Title from '../components/Title';
 
 const SignUp = () => {
+    Title('SignUp')
     const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext)
     const navigate = useNavigate()
     const handleRegister = e => {

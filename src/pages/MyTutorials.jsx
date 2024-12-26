@@ -2,8 +2,10 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import axios from 'axios';
 import MyTutorialRow from '../components/MyTutorialRow';
+import Title from '../components/Title';
 
 const MyTutorials = () => {
+    Title('MyTutorials')
     const { user } = useContext(AuthContext)
     const [tutorials, setTutorials] = useState([])
 
