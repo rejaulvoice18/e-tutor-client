@@ -21,14 +21,31 @@ const LanguageCategory = () => {
         setAllData(data)
     }
 
-    // category
+    category
     const allCategory = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/languages-photos`)
         setCategory(data)
     }
-    console.log(category)
 
-    console.log('from language',allData)
+    //fetch
+
+    // const allDataDB =  () => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/all-tutor`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setAllData(data)
+    //         })
+    // }
+
+    // // category
+    // const allCategory = () => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/languages-photos`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setCategory(data)
+    //         })
+    // }
+
     // only uniqe tutor
     const allTutor = [...new Set(allData.map(tut => tut.email))];
 

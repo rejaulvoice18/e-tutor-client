@@ -10,6 +10,12 @@ const MyBookedTutor = () => {
 
     useEffect(() => {
         MyBookedTutor()
+
+        // fetch(`${import.meta.env.VITE_API_URL}/myBooked-tutor/${user?.email}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setTutors(data)
+        //     })
     }, [user])
 
     const MyBookedTutor = async () => {

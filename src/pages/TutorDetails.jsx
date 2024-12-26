@@ -19,7 +19,14 @@ const TutorDetails = () => {
         setTutorial(data)
     }
 
-    const handleBookData = async() => {
+    // loadSingleMyTutorial = () => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/tutor/${details}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setTutorial(data)
+    //         })
+    // }
+    const handleBookData = async () => {
 
         const bookedData = {
             tutorId: tutorial._id,
@@ -32,17 +39,31 @@ const TutorDetails = () => {
         }
 
 
-        try{
-            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/book-tutor`,
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/book-tutor`,
                 bookedData
             )
             // e.target.reset()
             toast.success('Tutor booked successfully!!')
             navigate('/myBooked-tutor')
 
-        } catch (error){
+        } catch (error) {
         }
 
+        // fetch(`${import.meta.env.VITE_API_URL}/book-tutor`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(bookedData)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             toast.success('Tutor booked successfully!!')
+        //             navigate('/myBooked-tutor')
+        //         }
+        //     })
     }
     // const { name, email, tutorialPhoto, language, description, price, review, _id } = tutor || {}
     return (
@@ -67,9 +88,9 @@ const TutorDetails = () => {
                         <h2 className="card-title">BDT {tutorial && tutorial.price}</h2>
                     </div>
                     <div className="card-actions justify-end pr-2 pb-2">
-                        <button 
-                        onClick={handleBookData}
-                        className="py-1 mt-2 px-4 bg-gray-800 text-white">Book</button>
+                        <button
+                            onClick={handleBookData}
+                            className="py-1 mt-2 px-4 bg-gray-800 text-white">Book</button>
                     </div>
                 </div>
             </div>

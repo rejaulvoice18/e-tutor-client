@@ -18,27 +18,42 @@ const AddTotorials = () => {
         const description = e.target.description.value;
         const price = e.target.price.value;
 
-        const newTutorial = { 
-            name, 
-            email, 
-            tutorialPhoto, 
-            language, 
-            description, 
-            price, 
-            review: 0 
+        const newTutorial = {
+            name,
+            email,
+            tutorialPhoto,
+            language,
+            description,
+            price,
+            review: 0
         };
 
 
-        try{
-            const {data} = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorial`,
+        try {
+            const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/add-tutorial`,
                 newTutorial
             )
             // e.target.reset()
             toast.success('Tutorial added successfully!!')
             navigate('/myTutorials')
 
-        } catch (error){
+        } catch (error) {
         }
+
+        // fetch(`${import.meta.env.VITE_API_URL}/add-tutorial`, {
+        //     method: 'POST',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(newTutorial)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.insertedId) {
+        //             toast.success('Tutorial added successfully!!')
+        //             navigate('/myTutorials')
+        //         }
+        //     })
 
     }
     return (

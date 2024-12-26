@@ -9,8 +9,17 @@ const MyTutorials = () => {
 
     useEffect(() => {
         loadAllMyTutorials()
+
+       
     }, [user])
 
+    // loadAllMyTutorials = () => {
+    //     fetch(`${import.meta.env.VITE_API_URL}/tutorials/${user?.email}`)
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         setTutorials(data)
+    //     })
+    // }
     const loadAllMyTutorials = async () => {
         const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/tutorials/${user?.email}`)
         setTutorials(data)

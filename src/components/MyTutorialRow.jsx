@@ -18,7 +18,7 @@ const MyTutorialRow = ({ tutorial, tutorials, setTutorials, loadAllMyTutorials }
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
-        }).then(async (result) => {
+        }).then( async(result) => {
             if (result.isConfirmed) {
                 // fetch(`${import.meta.env.VITE_API_URL}/tutorial-delete/${_id}`, {
                 //     method: 'DELETE'

@@ -15,6 +15,12 @@ const FindTutors = () => {
             setTutors(data)
         }
         loadAllTutor()
+
+        // fetch(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         setTutors(data)
+        //     })
     }, [filter, search])
     // if somthing changes in filter and search then useEffects dependency will call again
 

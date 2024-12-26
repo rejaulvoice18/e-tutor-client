@@ -19,10 +19,18 @@ const UpdateMyTutorials = () => {
         setTutorial(data)
     }
 
+    // loadSingleMyTutorial = () =>{
+    //     fetch(`${import.meta.env.VITE_API_URL}/tutorial/${id}`)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setTutorial(data)
+    //         })
+    // }
+
     const { name, email, tutorialPhoto, language, description, price, review } = tutorial || {}
 
 
-    const handleUpdateTutorials = async e => {
+    const handleUpdateTutorials =  async e => {
         e.preventDefault()
         
         const name = e.target.name.value;
@@ -45,6 +53,21 @@ const UpdateMyTutorials = () => {
 
         } catch (error){
         }
+
+        // fetch(`${import.meta.env.VITE_API_URL}/update-tutorial/${id}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         'content-type': 'application/json'
+        //     },
+        //     body: JSON.stringify(updateTutorial)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         if (data.modifiedCount) {
+        //             toast.success('Tutorial updated successfully!!')
+        //             navigate('/myTutorials')
+        //         }
+        //     })
 
     }
     return (

@@ -17,7 +17,22 @@ const MyBookedTutorRow = ({tutor}) => {
         toast.success('One review Added Successfully!!!')
       } catch (error) {
       }
+
+    //   fetch(`${import.meta.env.VITE_API_URL}/review-inc/${id}`, {
+    //     method: 'PATCH'
+    //     // headers: {
+    //     //     'content-type': 'application/json'
+    //     // },
+    //     // body: JSON.stringify(bookedData)
+    // })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         if (data.modifiedCount) {
+    //             toast.success('One review Added Successfully!!!')
+    //         }
+    //     })
     }
+
     return (
         <tr>
             <td className='px-4 py-4 text-sm text-gray-500  whitespace-nowrap'>
