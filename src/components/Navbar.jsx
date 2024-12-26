@@ -4,6 +4,7 @@ import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
 import { Tooltip as ReactTooltip } from 'react-tooltip'
 import DarkWeb from './DarkWeb';
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
     const { user, signOutUser } = useContext(AuthContext)
@@ -55,7 +56,9 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl text-white">E-Tutor</a>
+                    <a className="btn btn-ghost text-xl text-white">
+                        <img className="w-8" src={logo} alt="" />
+                        E-Tutor</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">

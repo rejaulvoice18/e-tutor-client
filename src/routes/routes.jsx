@@ -10,11 +10,13 @@ import FindTutors from "../pages/FindTutors";
 import TutorDetails from "../pages/TutorDetails";
 import PrivateRoute from "./PrivateRoute";
 import MyBookedTutor from "../pages/MyBookedTutor";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
