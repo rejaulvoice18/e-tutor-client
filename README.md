@@ -33,7 +33,6 @@ Here are the main dependencies used in this project:
 - Node.js: `^16.0.0`
 - Express: `^4.0.0`
 - MongoDB: `^5.0.0`
-- Mongoose: `^6.0.0`
 
 ## ⚙️ Setup and Run Locally
 To run this project on your local machine, follow these steps:
