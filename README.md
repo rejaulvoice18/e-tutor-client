@@ -51,12 +51,14 @@ Make sure you have installed:
    cd your-repo
 
 2. Install dependencies:
+  
+   
    npm install
    
-3. Set up the environment variables:
-   Create a .env file in the root directory.
+4. Set up the environment variables:
+   Create a .env.local file in the root directory.
    Add the following variables:
-   REACT_APP_API_URL=http://localhost:5000
+   VITE_API_URL=http://localhost:5000
    FIREBASE_API_KEY=your_firebase_api_key
    FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
 
