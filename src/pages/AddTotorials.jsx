@@ -42,24 +42,11 @@ const AddTotorials = () => {
         } catch (error) {
         }
 
-        // fetch(`${import.meta.env.VITE_API_URL}/add-tutorial`, {
-        //     method: 'POST',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(newTutorial)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.insertedId) {
-        //             toast.success('Tutorial added successfully!!')
-        //             navigate('/myTutorials')
-        //         }
-        //     })
+        
 
     }
     return (
-        <div className='p-24'>
+        <div className='container mx-auto py-24'>
             <h2 className='font-bold text-2xl bg-gray-800 rounded-md inline-block px-2 text-white'>Add a Tutorial</h2>
             <form onSubmit={handleAddTutorials}>
                 {/* user name and user email row */}

@@ -69,7 +69,7 @@ const TutorDetails = () => {
     }
     // const { name, email, tutorialPhoto, language, description, price, review, _id } = tutor || {}
     return (
-        <div className='w-11/12 mx-auto my-5'>
+        <div className='container mx-auto my-5'>
             <h2 className='py-5 text-2xl font-bold'>Tutor Details</h2>
             <div className="card card-side bg-base-100 rounded-none gap-3">
 

@@ -56,24 +56,11 @@ const UpdateMyTutorials = () => {
         } catch (error){
         }
 
-        // fetch(`${import.meta.env.VITE_API_URL}/update-tutorial/${id}`, {
-        //     method: 'PUT',
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(updateTutorial)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount) {
-        //             toast.success('Tutorial updated successfully!!')
-        //             navigate('/myTutorials')
-        //         }
-        //     })
+       
 
     }
     return (
-        <div className='p-24'>
+        <div className='container mx-auto py-24'>
             <h2 className='font-bold text-2xl bg-[#36ab3f] inline-block px-2 text-white'>Update a Tutorial</h2>
             <form onSubmit={handleUpdateTutorials}>
                 {/* user name and user email row */}

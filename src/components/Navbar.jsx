@@ -13,17 +13,17 @@ const Navbar = () => {
         toast.success('Successfully Signed Out');
     }
     const links = <>
-        <NavLink to='/' className="font-bold ml-3"><a>Home</a></NavLink>
+        <li><NavLink to='/' className="font-bold ml-3">Home</NavLink></li>
         {
-            <NavLink to='/find-tutors' className="ml-3 font-bold"><a>Find Tutors</a></NavLink>
+            <li><NavLink to='/find-tutors' className="ml-3 font-bold">Find Tutors</NavLink></li>
         }
         
 
     </>
     return (
-        <>
-            <div className='flex justify-end py-1'><DarkWeb></DarkWeb></div>
-            <div className="navbar bg-gray-800 text-white bg-opacity-95 fixed top-0 z-10">
+        <div className=''>
+            <div className='flex justify-end py-1 px-5 md:px-8 lg:px-20'><DarkWeb></DarkWeb></div>
+            <div className="navbar bg-gray-800 text-white bg-opacity-95 fixed top-0 z-10 px-5 md:px-8 lg:px-20">
 
                 <div className="navbar-start">
                     <div className="dropdown bg-gray-900">
@@ -49,9 +49,9 @@ const Navbar = () => {
                             }
                         </ul>
                     </div>
-                    <a className="btn btn-ghost text-xl text-white">
+                    <Link to='/' className="btn btn-ghost text-xl text-white">
                         <img className="w-8" src={logo} alt="" />
-                        E-Tutor</a>
+                        E-Tutor</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -95,7 +95,7 @@ const Navbar = () => {
                     {/* end */}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 

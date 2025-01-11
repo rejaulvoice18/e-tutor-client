@@ -10,25 +10,20 @@ const FindTutors = () => {
     const [tutors, setTutors] = useState([])
     const [filter, setFilter] = useState('')
     const [search, setSearch] = useState('')
+    const [sort, setSort] = useState('')
 
     useEffect(() => {
         const loadAllTutor = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}&sort=${sort}`)
             setTutors(data)
         }
         loadAllTutor()
-
-        // fetch(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}`)
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         setTutors(data)
-        //     })
-    }, [filter, search])
+    }, [filter, search, sort])
     // if somthing changes in filter and search then useEffects dependency will call again
 
-    
+
     return (
-        <div className='w-11/12 mx-auto mb-5'>
+        <div className='container mx-auto mb-5'>
             <h2 className='font-bold py-4 text-2xl'>Online Tutors & teacher for private lessons</h2>
             <div className='flex flex-col md:flex-row justify-center items-center gap-5 my-10 '>
                 <div>
@@ -67,6 +62,19 @@ const FindTutors = () => {
                         </button>
                     </div>
                 </form>
+                <div>
+                    <select
+                        name='category'
+                        id='category'
+                        onChange={(e) => setSort(e.target.value)}
+                        value={sort}
+                        className='border p-4 rounded-md'
+                    >
+                        <option value=''>Sort By Price</option>
+                        <option value='dsc'>Descending Order</option>
+                        <option value='asc'>Ascending Order</option>
+                    </select>
+                </div>
             </div>
             <h4 className='font-bold py-3'>{tutors.length} Tutorials available</h4>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>

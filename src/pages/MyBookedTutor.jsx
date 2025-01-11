@@ -39,7 +39,7 @@ const MyBookedTutor = () => {
                     <div className='inline-block min-w-full py-2 align-middle md:px-6 lg:px-8'>
                         <div className='overflow-hidden border border-gray-200  md:rounded-lg'>
                             <table className='min-w-full divide-y divide-gray-200'>
-                                <thead className='bg-gray-50'>
+                                <thead className=''>
                                     <tr>
                                         <th
                                             scope='col'
@@ -78,7 +78,7 @@ const MyBookedTutor = () => {
                                         </th>
                                     </tr>
                                 </thead>
-                                <tbody className='bg-white divide-y divide-gray-200 '>
+                                <tbody className=' divide-y divide-gray-200 '>
                                     {
                                         tutors.map(tutor => <MyBookedTutorRow
                                             key={tutor._id}
