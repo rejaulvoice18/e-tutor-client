@@ -85,6 +85,8 @@ const FindTutors = () => {
                     />)
                 }
             </div>
+            {/* Paginatin start from here  */}
+            {/* Pagination ends from here  */}
         </div>
     );
 };

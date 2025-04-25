@@ -20,30 +20,30 @@ const ShowOfBanner = () => {
     }, [])
     return (
         <div className='my-3 w-11/12 mx-auto'>
-        <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-            }}
-            pagination={{
-                clickable: true,
-            }}
-            navigation={true}
-            modules={[Pagination, Navigation]}
-            className="mySwiper"
-        >
-            {
-                showOff.map(review => <SwiperSlide key={review._id}>
-                    <ShowOffSlide
-                        
-                        reviews={review}
-                    ></ShowOffSlide>
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                autoplay={{
+                    delay: 2500,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Pagination, Navigation]}
+                className="mySwiper"
+            >
+                {
+                    showOff.map(review => <SwiperSlide key={review._id}>
+                        <ShowOffSlide
+
+                            reviews={review}
+                        ></ShowOffSlide>
                     </SwiperSlide>)
-            }
-        </Swiper>
-    </div>
+                }
+            </Swiper>
+        </div>
     );
 };
 
