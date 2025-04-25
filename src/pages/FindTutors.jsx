@@ -3,6 +3,7 @@ import TutorCard from '../components/TutorCard';
 import axios from 'axios';
 import { AuthContext } from '../provider/AuthProvider';
 import Title from '../components/Title';
+import './FindTutors.css';
 
 const FindTutors = () => {
     Title('FintTutors')
@@ -12,15 +13,55 @@ const FindTutors = () => {
     const [search, setSearch] = useState('')
     const [sort, setSort] = useState('')
 
+    // pagination
+    const [currentPage, setCurrentPage] = useState(0)
+    const [itemsPerPage, setItemsPerPage] = useState(10)
+    const [count, setCount] = useState(0)
+
+    const numberOfPages = Math.ceil(count / itemsPerPage);
+
+    const pages = [...Array(numberOfPages).keys()];
+    console.log(pages)
+
+    useEffect(() => {
+        console.log(`${import.meta.env.VITE_API_URL}/productsCount`)
+        fetch(`${import.meta.env.VITE_API_URL}/productsCount`)
+            .then(res => res.json())
+            .then(data => setCount(data.count))
+            .catch(err => console.error('Fetch error:', err));
+    }, [])
+
     useEffect(() => {
         const loadAllTutor = async () => {
-            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}&sort=${sort}`)
+            const { data } = await axios.get(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`)
             setTutors(data)
+            console.log(`${import.meta.env.VITE_API_URL}/all-tutorials-search?filter=${filter}&search=${search}&sort=${sort}&page=${currentPage}&size=${itemsPerPage}`)
         }
         loadAllTutor()
-    }, [filter, search, sort])
+    }, [filter, search, sort, currentPage, itemsPerPage])
     // if somthing changes in filter and search then useEffects dependency will call again
 
+    // Pagination functionality
+    const handleItemsPerPage = e => {
+        console.log(e.target.value);
+        const val = parseInt(e.target.value)
+        setItemsPerPage(val);
+        setCurrentPage(0)
+    }
+
+    // previous page functionality
+    const handlePrevPage = () => {
+        if (currentPage > 0) {
+            setCurrentPage(currentPage - 1)
+        }
+    }
+
+    // next page functionaltiy 
+    const handleNextPage = () => {
+        if (currentPage < pages.length - 1) {
+            setCurrentPage(currentPage + 1)
+        }
+    }
 
     return (
         <div className='container mx-auto mb-5'>
@@ -86,6 +127,23 @@ const FindTutors = () => {
                 }
             </div>
             {/* Paginatin start from here  */}
+            <div className='pagination'>
+                <p>Current page: {currentPage}</p>
+                <button onClick={handlePrevPage}>Prev</button>
+                {
+                    pages.map(page => <button
+                        className={currentPage === page ? 'selected' : undefined}
+                        onClick={() => setCurrentPage(page)}
+                        key={page}>{page}</button>)
+                }
+                <button onClick={handleNextPage}>Next</button>
+                <select value={itemsPerPage} onChange={handleItemsPerPage} name="" id="">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
             {/* Pagination ends from here  */}
         </div>
     );
